@@ -264,6 +264,8 @@ class main:
               pady=30, bg='#f090d9', bd=5, padx=20).grid(row=0, column=2, sticky=E + W)
         Label(self.v, text="Percentage", borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'),
               pady=30, bg='#f090d9', bd=5, padx=20).grid(row=0, column=3, sticky=E + W)
+        Label(self.v, text="Safe Bunks", borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'),
+              pady=30, bg='#f090d9', bd=5, padx=20).grid(row=0, column=4, sticky=E + W)
 
         Label(self.v, text=rows[0][0], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
               bg='#f090d9', bd=5, padx=20).grid(row=1, column=0, sticky=E + W)
@@ -332,6 +334,37 @@ class main:
               bg='#f090d9', bd=5, padx=20).grid(row=6, column=3, sticky=E + W)
         Label(self.v, text=a[6], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
               bg='#f090d9', bd=5, padx=20).grid(row=7, column=3, sticky=E + W)
+
+        b = []
+        for i in range(7):
+            co = 0
+            if (a[i] <= 80):
+                b.append(0)
+
+            else:
+                x1 = int(rows[i][1])
+                x2 = int(rows[i][2])
+                x3 = a[i] / 100
+                while (x3 >= 0.8):
+                    x2 = x2 + 1
+                    co = co + 1
+                    x3 = x1 / x2
+                b.append(co)
+
+        Label(self.v, text=b[0], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
+              bg='#f090d9', bd=5, padx=20).grid(row=1, column=4, sticky=E + W)
+        Label(self.v, text=b[1], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
+              bg='#f090d9', bd=5, padx=20).grid(row=2, column=4, sticky=E + W)
+        Label(self.v, text=b[2], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
+              bg='#f090d9', bd=5, padx=20).grid(row=3, column=4, sticky=E + W)
+        Label(self.v, text=b[3], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
+              bg='#f090d9', bd=5, padx=20).grid(row=4, column=4, sticky=E + W)
+        Label(self.v, text=b[4], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
+              bg='#f090d9', bd=5, padx=20).grid(row=5, column=4, sticky=E + W)
+        Label(self.v, text=b[5], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
+              bg='#f090d9', bd=5, padx=20).grid(row=6, column=4, sticky=E + W)
+        Label(self.v, text=b[6], borderwidth=2, relief="raised", font=('Times New Roman', 15, 'italic'), pady=30,
+              bg='#f090d9', bd=5, padx=20).grid(row=7, column=4, sticky=E + W)
 
         Button(self.v, text=' Back ', bd=5, font=('Times New Roman', 15, 'bold'), padx=5, pady=5,
                command=self.backv, bg='#f3826f').grid(sticky=W, padx=30, pady=50)
@@ -571,7 +604,7 @@ class main:
         elements = []
         f = open('user.txt', 'r')
         si = f.read()
-        path = 'C:/Users/bssug/Documents'
+        path = 'D:/Sem 5/SE/MiniProject/.idea'
         nm = "Attendance Report - " + si + ".pdf"
         x = os.path.join(path, nm)
         doc = SimpleDocTemplate(x, pagesize=letter)
