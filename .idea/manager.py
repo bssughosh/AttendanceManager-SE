@@ -21,7 +21,7 @@ with sqlite3.connect('user_details.db') as db1:
     c1 = db1.cursor()
 
 c1.execute(
-    'CREATE TABLE IF NOT EXISTS user1(sapid TEXT NOT NULL, name TEXT NOT NULL, course TEXT NOT NULL, stream TEXT NOT NULL, sem TEXT NOT NULL);')
+    "CREATE TABLE IF NOT EXISTS user1(sapid TEXT NOT NULL, name TEXT NOT NULL, course TEXT NOT NULL, stream TEXT NOT NULL, sem TEXT NOT NULL);")
 db1.commit()
 db1.close()
 
@@ -532,12 +532,12 @@ class main:
         with sqlite3.connect('user_details.db') as db1:
             c1 = db1.cursor()
         find_user = ('SELECT * FROM user1 WHERE sapid = ?')
-        c1.execute(find_user, [(self.username.get())])
+        c1.execute(find_user, [si])
         if c1.fetchall():
             self.su1()
 
         else:
-            ms.showinfo('The account is not registered')
+            ms.showinfo('Not found','The account is not registered')
             self.l.forget()
             self.openhome()
 
